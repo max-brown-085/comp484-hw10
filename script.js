@@ -1,3 +1,4 @@
+//HW 10 Information on line 155
 /*Project 2 Details:
 My two unique methods were .mousemove() and .mouseleave()
 The button I added was the pet button which goes along with the new pet counter
@@ -111,6 +112,8 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info['happiness'] += 1;
       // Increase pets given
       pet_info['petsGiven'] += 1;
+      //Log when pet button is clicked. Also when manually petting the pet image.
+      console.info("Pet button clicked");
       petEffect();
       checkAndUpdatePetInfoInHtml();
     }
@@ -147,4 +150,44 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       $('.happiness').text(pet_info['happiness']);
       $('.pets-given').text(pet_info['petsGiven']);
     }
+
+
+    /*
+     * HW 10 Starts here
+     * HW 10 Console message logging
+     * There is a console.info in the clickedPetButton function on line 116
+     * The rest are here
+     */
+
+    //console.warn for warnings
+    console.warn("mousemove and mouseleave events are deprecated");
+
+    //console.error for errors
+    console.error("This is an error message.");
+    
+    //console.group groups messages and console.groupEnd closes the group
+    //console.table displays data in a table format
+    console.group("Pet Information");
+    console.table(pet_info);
+    console.groupEnd();
+    
+    //console.log with CSS styling
+    //This is very hard to read
+    console.log("%cThis text is blue", "color: blue;");
+
+    //Causing 404 error 
+    //I changed image source to orse.jpg in index.html (line 23) which does not exist
+
+    //Violation: causes violation when clicking because it takes too long
+    document.addEventListener('click', () => {
+      let start = Date.now();
+      while (Date.now() - start < 300) {}
+    });
+
+    //TypeError: nullValue is not a function so nullValue() causes a TypeError
+    let nullValue = null;
+    // nullValue = () => {};
+    nullValue();
+
+
   
